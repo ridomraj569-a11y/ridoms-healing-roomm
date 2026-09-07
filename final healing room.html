@@ -1,0 +1,3274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Ridom's Room</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+}
+
+html,body{
+    margin:0;
+    width:100%;
+    height:100%;
+    overflow:hidden;
+}
+
+body{
+    font-family:Georgia,"Times New Roman",serif;
+}
+
+
+/* =====================================================
+   ROOM
+===================================================== */
+
+.room{
+    position:relative;
+    width:100vw;
+    height:100vh;
+    overflow:hidden;
+
+    background:
+        radial-gradient(
+            ellipse at 50% 25%,
+            rgba(255,255,255,.38),
+            transparent 46%
+        ),
+        linear-gradient(
+            180deg,
+            #d7e8f2 0%,
+            #c8dfea 48%,
+            #b6d0df 100%
+        );
+}
+
+.glow{
+    position:absolute;
+    width:520px;
+    height:520px;
+    left:50%;
+    top:0;
+    transform:translateX(-50%);
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,255,255,.22),
+            transparent 68%
+        );
+
+    filter:blur(25px);
+    pointer-events:none;
+    z-index:1;
+}
+
+
+/* =====================================================
+   TITLE
+===================================================== */
+
+.room-title{
+    position:absolute;
+    left:7%;
+    top:7%;
+
+    color:#526f84;
+    font-size:30px;
+    letter-spacing:4px;
+    z-index:20;
+}
+
+.subtitle{
+    position:absolute;
+    left:7%;
+    top:14%;
+
+    color:#718b9d;
+    font-size:13px;
+    letter-spacing:2px;
+    z-index:20;
+}
+
+
+/* =====================================================
+   STARS
+===================================================== */
+
+.star{
+    position:absolute;
+    color:rgba(255,255,255,.85);
+    font-size:16px;
+    z-index:8;
+
+    animation:
+        starFloat 5s infinite ease-in-out;
+}
+
+.star1{
+    left:17%;
+    top:23%;
+}
+
+.star2{
+    left:30%;
+    top:13%;
+    animation-delay:1.4s;
+}
+
+.star3{
+    left:48%;
+    top:19%;
+    animation-delay:2.2s;
+}
+
+.star4{
+    right:25%;
+    top:13%;
+    animation-delay:.7s;
+}
+
+.star5{
+    right:12%;
+    top:30%;
+    animation-delay:2.8s;
+}
+
+.star6{
+    right:32%;
+    top:38%;
+    animation-delay:1.8s;
+}
+
+@keyframes starFloat{
+
+    0%,100%{
+        opacity:.35;
+        transform:
+            translateY(0)
+            rotate(0deg)
+            scale(.8);
+    }
+
+    50%{
+        opacity:1;
+        transform:
+            translateY(-9px)
+            rotate(18deg)
+            scale(1.15);
+    }
+}
+
+
+/* =====================================================
+   FLOATING SPIRALS
+===================================================== */
+
+.spiral{
+    position:absolute;
+
+    color:rgba(255,255,255,.65);
+
+    font-family:"Times New Roman",serif;
+    font-size:27px;
+
+    z-index:6;
+    pointer-events:none;
+
+    animation:
+        spiralRise 13s infinite ease-in-out;
+}
+
+.spiral1{
+    left:13%;
+    bottom:5%;
+    animation-duration:15s;
+}
+
+.spiral2{
+    left:27%;
+    bottom:0%;
+    animation-delay:3s;
+    animation-duration:12s;
+}
+
+.spiral3{
+    left:44%;
+    bottom:4%;
+    animation-delay:6s;
+    animation-duration:16s;
+}
+
+.spiral4{
+    right:31%;
+    bottom:2%;
+    animation-delay:2s;
+    animation-duration:14s;
+}
+
+.spiral5{
+    right:17%;
+    bottom:0%;
+    animation-delay:7s;
+    animation-duration:17s;
+}
+
+.spiral6{
+    right:7%;
+    bottom:7%;
+    animation-delay:4s;
+    animation-duration:13s;
+}
+
+@keyframes spiralRise{
+
+    0%{
+        opacity:0;
+        transform:
+            translateY(80px)
+            translateX(0)
+            rotate(0deg)
+            scale(.6);
+    }
+
+    15%{
+        opacity:.55;
+    }
+
+    50%{
+        transform:
+            translateY(-180px)
+            translateX(18px)
+            rotate(180deg)
+            scale(1);
+    }
+
+    80%{
+        opacity:.35;
+    }
+
+    100%{
+        opacity:0;
+        transform:
+            translateY(-390px)
+            translateX(-15px)
+            rotate(360deg)
+            scale(.65);
+    }
+}
+
+
+/* =====================================================
+   PARTICLES
+===================================================== */
+
+.particle{
+    position:absolute;
+
+    width:5px;
+    height:5px;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.55);
+
+    z-index:5;
+
+    animation:
+        particleFloat 9s infinite ease-in-out;
+}
+
+.p1{
+    left:24%;
+    bottom:25%;
+}
+
+.p2{
+    left:57%;
+    bottom:18%;
+    animation-delay:2s;
+}
+
+.p3{
+    right:18%;
+    bottom:30%;
+    animation-delay:4s;
+}
+
+.p4{
+    right:38%;
+    bottom:15%;
+    animation-delay:6s;
+}
+
+@keyframes particleFloat{
+
+    0%,100%{
+        opacity:0;
+        transform:translateY(20px);
+    }
+
+    30%{
+        opacity:.7;
+    }
+
+    70%{
+        opacity:.4;
+    }
+
+    100%{
+        transform:translateY(-190px);
+    }
+}
+
+
+/* =====================================================
+   FLOOR
+===================================================== */
+
+.floor{
+    position:absolute;
+
+    left:0;
+    bottom:0;
+
+    width:100%;
+    height:22%;
+
+    background:
+        repeating-linear-gradient(
+            90deg,
+            #93adbf 0px,
+            #93adbf 90px,
+            #879fb2 92px,
+            #879fb2 180px
+        );
+
+    box-shadow:
+        inset 0 8px 25px rgba(40,60,75,.15);
+
+    z-index:2;
+}
+
+
+/* =====================================================
+   MYSTERIOUS DECEMBER CLUE
+===================================================== */
+
+.december-clue{
+    position:absolute;
+
+    left:4%;
+    bottom:12%;
+
+    color:rgba(74,92,104,.32);
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    font-size:9px;
+
+    letter-spacing:4px;
+
+    transform:rotate(-7deg);
+
+    cursor:pointer;
+
+    z-index:15;
+
+    transition:
+        color .4s ease,
+        transform .4s ease;
+}
+
+.december-clue:hover{
+    color:rgba(74,92,104,.78);
+
+    transform:
+        rotate(-7deg)
+        translateY(-3px);
+}
+
+
+/* =====================================================
+   PIGEON
+===================================================== */
+
+.pigeon{
+    position:absolute;
+
+    width:125px;
+    height:95px;
+
+    right:9%;
+    top:23%;
+
+    z-index:25;
+
+    cursor:pointer;
+
+    animation:
+        pigeonFloat 8s infinite ease-in-out;
+
+    filter:
+        drop-shadow(3px 5px 5px rgba(55,70,80,.18));
+}
+
+.pigeon-body{
+    position:absolute;
+
+    width:62px;
+    height:43px;
+
+    left:31px;
+    top:27px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #eef3f4,
+            #c9d5da
+        );
+
+    border-radius:
+        55% 45% 48% 52%;
+
+    transform:rotate(-4deg);
+}
+
+.pigeon-neck{
+    position:absolute;
+
+    width:36px;
+    height:39px;
+
+    left:68px;
+    top:17px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #e9eff1,
+            #b9c8cf
+        );
+
+    border-radius:
+        55% 55% 45% 45%;
+
+    transform:rotate(12deg);
+}
+
+.pigeon-head{
+    position:absolute;
+
+    width:34px;
+    height:32px;
+
+    left:84px;
+    top:8px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #f3f6f6,
+            #c5d1d6
+        );
+
+    border-radius:50%;
+}
+
+.pigeon-head:before{
+    content:"";
+
+    position:absolute;
+
+    width:6px;
+    height:6px;
+
+    right:9px;
+    top:10px;
+
+    background:#37434b;
+
+    border-radius:50%;
+
+    box-shadow:
+        0 0 0 2px rgba(255,255,255,.55);
+}
+
+.pigeon-beak{
+    position:absolute;
+
+    width:18px;
+    height:8px;
+
+    right:-12px;
+    top:21px;
+
+    background:#b89b78;
+
+    clip-path:
+        polygon(
+            0 0,
+            100% 50%,
+            0 100%
+        );
+
+    transform:rotate(2deg);
+
+    z-index:4;
+}
+
+.pigeon-wing{
+    position:absolute;
+
+    width:48px;
+    height:30px;
+
+    left:34px;
+    top:29px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #dce5e8,
+            #aebec5
+        );
+
+    border-radius:
+        70% 30% 65% 35%;
+
+    transform:
+        rotate(-15deg);
+
+    transform-origin:
+        75% 45%;
+
+    animation:
+        wingMove 1.8s infinite ease-in-out;
+}
+
+.pigeon-wing:after{
+    content:"";
+
+    position:absolute;
+
+    width:28px;
+    height:2px;
+
+    left:7px;
+    top:17px;
+
+    background:
+        rgba(115,135,145,.35);
+
+    transform:rotate(-7deg);
+
+    box-shadow:
+        4px 7px rgba(115,135,145,.25),
+        8px 14px rgba(115,135,145,.18);
+}
+
+.pigeon-tail{
+    position:absolute;
+
+    width:32px;
+    height:25px;
+
+    left:10px;
+    top:39px;
+
+    background:#aebfc7;
+
+    clip-path:
+        polygon(
+            100% 0,
+            0 20%,
+            18% 50%,
+            0 82%,
+            100% 100%
+        );
+
+    transform:rotate(-5deg);
+}
+
+.pigeon-foot{
+    position:absolute;
+
+    width:12px;
+    height:3px;
+
+    left:53px;
+    top:66px;
+
+    background:#927b67;
+
+    border-radius:3px;
+
+    transform:rotate(10deg);
+}
+
+.pigeon-foot.two{
+    left:69px;
+}
+
+
+/* pigeon letter */
+
+.pigeon-letter{
+    position:absolute;
+
+    width:45px;
+    height:17px;
+
+    right:-30px;
+    top:28px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #f3eadb,
+            #ddd0bc
+        );
+
+    border-radius:2px;
+
+    box-shadow:
+        1px 2px 5px rgba(50,50,50,.22);
+
+    transform:
+        rotate(-8deg);
+
+    z-index:10;
+
+    transition:
+        transform .3s ease;
+}
+
+.pigeon-letter:before{
+    content:"";
+
+    position:absolute;
+
+    left:5px;
+    top:5px;
+
+    width:28px;
+    height:1px;
+
+    background:
+        rgba(90,80,70,.35);
+
+    box-shadow:
+        0 4px rgba(90,80,70,.25);
+}
+
+.pigeon-letter:after{
+    content:"";
+
+    position:absolute;
+
+    right:4px;
+    top:3px;
+
+    width:8px;
+    height:8px;
+
+    border:
+        1px solid rgba(130,105,85,.35);
+
+    border-radius:50%;
+}
+
+.pigeon:hover .pigeon-letter{
+    transform:
+        rotate(-8deg)
+        translateY(-3px);
+}
+
+@keyframes pigeonFloat{
+
+    0%,100%{
+        transform:
+            translate(0,0)
+            rotate(0deg);
+    }
+
+    25%{
+        transform:
+            translate(-18px,-8px)
+            rotate(-2deg);
+    }
+
+    50%{
+        transform:
+            translate(-35px,4px)
+            rotate(2deg);
+    }
+
+    75%{
+        transform:
+            translate(-15px,11px)
+            rotate(-1deg);
+    }
+}
+
+@keyframes wingMove{
+
+    0%,100%{
+        transform:
+            rotate(-15deg);
+    }
+
+    50%{
+        transform:
+            rotate(4deg)
+            translateY(-2px);
+    }
+}
+
+
+/* =====================================================
+   STUDY AREA
+===================================================== */
+
+.study-area{
+    position:absolute;
+
+    width:760px;
+    height:480px;
+
+    left:50%;
+    bottom:10%;
+
+    transform:translateX(-50%);
+
+    z-index:30;
+}
+
+
+/* =====================================================
+   BOOKSHELF
+===================================================== */
+
+.bookshelf{
+    position:absolute;
+
+    width:145px;
+    height:185px;
+
+    left:0;
+    bottom:82px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #624c3c,
+            #755a46,
+            #5b4536
+        );
+
+    border-radius:5px;
+
+    box-shadow:
+        4px 9px 18px rgba(30,40,45,.23);
+
+    z-index:32;
+}
+
+.bookshelf:before{
+    content:"";
+
+    position:absolute;
+
+    width:155px;
+    height:8px;
+
+    left:-5px;
+    top:-4px;
+
+    background:#584232;
+
+    border-radius:3px;
+}
+
+.shelf{
+    position:absolute;
+
+    width:122px;
+    height:6px;
+
+    left:12px;
+
+    background:#48362b;
+}
+
+.shelf.one{
+    top:58px;
+}
+
+.shelf.two{
+    top:120px;
+}
+
+.shelf.three{
+    top:178px;
+}
+
+.book{
+    position:absolute;
+
+    width:12px;
+
+    border-radius:2px;
+}
+
+.book1{
+    height:37px;
+    left:22px;
+    bottom:64px;
+    background:#7892a5;
+}
+
+.book2{
+    height:44px;
+    left:37px;
+    bottom:64px;
+    background:#91a7b8;
+}
+
+.book3{
+    height:32px;
+    left:52px;
+    bottom:64px;
+    background:#657f94;
+}
+
+.book4{
+    height:40px;
+    right:22px;
+    bottom:126px;
+    background:#849caf;
+}
+
+.book5{
+    height:33px;
+    right:37px;
+    bottom:126px;
+    background:#6e879b;
+}
+
+
+/* =====================================================
+   TABLE
+===================================================== */
+
+.table-top{
+    position:absolute;
+
+    width:530px;
+    height:125px;
+
+    left:155px;
+    bottom:82px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #806651,
+            #6b5442
+        );
+
+    border-radius:7px;
+
+    box-shadow:
+        0 16px 25px rgba(40,50,60,.25),
+        inset 0 3px 0 rgba(255,255,255,.08);
+
+    z-index:35;
+}
+
+
+
+/* Small plant + flower on top of the bookshelf */
+.bookshelf-botanicals{
+    position:absolute;
+    left:34px;
+    top:-58px;
+    width:80px;
+    height:62px;
+    z-index:60;
+    pointer-events:none;
+}
+.bookshelf-pot{
+    position:absolute;
+    left:22px;
+    bottom:0;
+    width:30px;
+    height:20px;
+    background:linear-gradient(135deg,#a97958,#805a45);
+    border-radius:3px 3px 8px 8px;
+    box-shadow:0 3px 6px rgba(20,30,35,.2);
+}
+.bookshelf-pot:before{
+    content:"";
+    position:absolute;
+    width:36px;
+    height:5px;
+    left:-3px;
+    top:-3px;
+    background:#6d4c3b;
+    border-radius:4px;
+}
+.bookshelf-stem{
+    position:absolute;
+    width:3px;
+    height:39px;
+    left:37px;
+    bottom:17px;
+    background:#526b4e;
+    transform:rotate(-5deg);
+    transform-origin:bottom;
+}
+.bookshelf-leaf{
+    position:absolute;
+    width:18px;
+    height:9px;
+    background:#66866a;
+    border-radius:100% 0 100% 0;
+}
+.bookshelf-leaf.l1{left:20px;bottom:37px;transform:rotate(-28deg);}
+.bookshelf-leaf.l2{left:38px;bottom:46px;transform:rotate(26deg);}
+.bookshelf-leaf.l3{left:45px;bottom:29px;transform:rotate(55deg);}
+.bookshelf-flower{
+    position:absolute;
+    right:0;
+    top:3px;
+    width:26px;
+    height:26px;
+}
+.bookshelf-flower .fp{
+    position:absolute;
+    width:10px;
+    height:15px;
+    left:8px;
+    top:5px;
+    background:#d8b8c6;
+    border-radius:50%;
+    transform-origin:5px 8px;
+}
+.bookshelf-flower .fp:nth-child(1){transform:rotate(0deg) translateY(-7px);}
+.bookshelf-flower .fp:nth-child(2){transform:rotate(72deg) translateY(-7px);}
+.bookshelf-flower .fp:nth-child(3){transform:rotate(144deg) translateY(-7px);}
+.bookshelf-flower .fp:nth-child(4){transform:rotate(216deg) translateY(-7px);}
+.bookshelf-flower .fp:nth-child(5){transform:rotate(288deg) translateY(-7px);}
+.bookshelf-flower .fc{
+    position:absolute;
+    width:8px;
+    height:8px;
+    left:9px;
+    top:9px;
+    border-radius:50%;
+    background:#c49a58;
+}
+
+/* Ink-like lettering for the little diary */
+.diary-title, .diary-small{
+    color:#111!important;
+    text-shadow:none!important;
+}
+.diary-small{
+    font-weight:700;
+    letter-spacing:1.2px;
+}
+
+/* =====================================================
+   CALENDAR
+===================================================== */
+
+.calendar{
+    position:absolute;
+
+    width:86px;
+    height:105px;
+
+    left:190px;
+    bottom:188px;
+
+    z-index:55;
+
+    cursor:pointer;
+}
+
+.calendar-paper{
+    position:absolute;
+
+    width:78px;
+    height:82px;
+
+    left:4px;
+    top:0;
+
+    padding:6px;
+
+    background:#eee7d8;
+
+    border-radius:3px;
+
+    box-shadow:
+        2px 4px 9px rgba(35,35,35,.18);
+
+    transform:rotate(-2deg);
+}
+
+.calendar-title{
+    text-align:center;
+
+    font-size:8px;
+
+    letter-spacing:1.5px;
+
+    color:#52677a;
+
+    margin-bottom:5px;
+}
+
+.month-grid{
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    grid-template-rows:
+        repeat(4,1fr);
+
+    gap:3px;
+
+    width:100%;
+    height:58px;
+}
+
+.month{
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    font-size:7px;
+
+    color:#687783;
+
+    background:#e2e4df;
+
+    border-radius:2px;
+}
+
+.month.december{
+    background:#d9d8d0;
+
+    position:relative;
+}
+
+.push-pin{
+    position:absolute;
+
+    width:8px;
+    height:8px;
+
+    right:5px;
+    bottom:5px;
+
+    border-radius:50%;
+
+    background:#9b3437;
+
+    box-shadow:
+        1px 2px 3px rgba(50,20,20,.35);
+}
+
+.calendar-stand{
+    position:absolute;
+
+    width:55px;
+    height:22px;
+
+    left:15px;
+    bottom:0;
+
+    background:
+        linear-gradient(
+            90deg,
+            #574434,
+            #725640,
+            #554131
+        );
+
+    clip-path:
+        polygon(
+            15% 0%,
+            85% 0%,
+            100% 100%,
+            0% 100%
+        );
+}
+
+
+/* =====================================================
+   MY LITTLE DIARY
+   NOT THE POEM DIARY
+===================================================== */
+
+.diary{
+    position:absolute;
+
+    width:145px;
+    height:105px;
+
+    left:325px;
+    bottom:98px;
+
+    z-index:50;
+
+    cursor:pointer;
+
+    transform:rotate(-2deg);
+
+    transition:
+        transform .25s ease;
+}
+
+.diary:hover{
+    transform:
+        rotate(-2deg)
+        translateY(-4px);
+}
+
+.diary-cover{
+    position:absolute;
+
+    width:145px;
+    height:105px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #4e6f85,
+            #3e5d72
+        );
+
+    border-radius:
+        5px 7px 7px 5px;
+
+    box-shadow:
+        4px 7px 13px rgba(30,40,50,.30);
+}
+
+.diary-pages{
+    position:absolute;
+
+    width:135px;
+    height:94px;
+
+    left:6px;
+    top:5px;
+
+    background:#e8e1d4;
+
+    border-radius:3px;
+}
+
+.diary-title{
+    position:absolute;
+
+    width:100%;
+
+    top:27px;
+
+    text-align:center;
+
+    color:#e7edf1;
+
+    font-size:14px;
+
+    letter-spacing:1px;
+
+    z-index:5;
+}
+
+.diary-small{
+    position:absolute;
+
+    width:100%;
+
+    top:55px;
+
+    text-align:center;
+
+    color:rgba(230,240,245,.65);
+
+    font-size:8px;
+
+    letter-spacing:2px;
+
+    z-index:5;
+}
+
+
+/* =====================================================
+   BOLD ROOM NOTE
+===================================================== */
+
+.bold-room-note{
+    position:absolute;
+    left:355px;
+    bottom:255px;
+    width:235px;
+    z-index:58;
+    font-family:Georgia,"Times New Roman",serif;
+    font-size:18px;
+    line-height:1.15;
+    font-weight:700;
+    letter-spacing:.4px;
+    color:#dce9ef;
+    text-shadow:0 2px 8px rgba(20,35,45,.42);
+    transform:rotate(-2deg);
+    pointer-events:none;
+}
+
+/* =====================================================
+   MINI MUSIC PLAYER
+===================================================== */
+
+.music-player{
+    position:absolute;
+    width:150px;
+    height:64px;
+    right:24px;
+    bottom:92px;
+    z-index:60;
+    padding:9px 11px;
+    border-radius:9px;
+    background:rgba(28,47,58,.88);
+    border:1px solid rgba(220,235,240,.18);
+    box-shadow:0 8px 20px rgba(10,20,28,.28);
+    color:#edf4f6;
+    font-family:Georgia,"Times New Roman",serif;
+}
+.music-player-title{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;opacity:.7;}
+.music-player-name{font-size:13px;margin-top:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.music-player button{
+    position:absolute;right:9px;top:18px;width:28px;height:28px;border:0;border-radius:50%;
+    background:#e9eef0;color:#304854;cursor:pointer;font-size:12px;
+}
+.music-player button:hover{transform:scale(1.06);}
+
+/* =====================================================
+   IPHONE
+===================================================== */
+
+.iphone{
+    position:absolute;
+
+    width:52px;
+    height:96px;
+
+    left:435px;
+    bottom:100px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #d13b49,
+            #a92534
+        );
+
+    border-radius:10px;
+
+    transform:rotate(-7deg);
+
+    cursor:pointer;
+
+    z-index:100;
+
+    box-shadow:
+        4px 7px 13px rgba(30,30,30,.32);
+
+    transition:
+        transform .25s ease;
+}
+
+.iphone:hover{
+    transform:
+        rotate(-7deg)
+        translateY(-4px);
+}
+
+.iphone-camera{
+    position:absolute;
+
+    width:23px;
+    height:29px;
+
+    left:6px;
+    top:7px;
+
+    background:#9e2634;
+
+    border-radius:6px;
+}
+
+.iphone-camera:before{
+    content:"";
+
+    position:absolute;
+
+    width:8px;
+    height:8px;
+
+    left:3px;
+    top:3px;
+
+    border-radius:50%;
+
+    background:#1e2329;
+
+    box-shadow:
+        0 12px #1e2329;
+}
+
+.iphone-camera:after{
+    content:"";
+
+    position:absolute;
+
+    width:5px;
+    height:5px;
+
+    right:3px;
+    top:4px;
+
+    border-radius:50%;
+
+    background:#d8c994;
+}
+
+
+/* =====================================================
+   HEADPHONES
+===================================================== */
+
+.headphones{
+    position:absolute;
+
+    width:110px;
+    height:125px;
+
+    left:610px;
+    bottom:125px;
+
+    z-index:110;
+
+    cursor:pointer;
+
+    transform:rotate(5deg);
+}
+
+.headband{
+    position:absolute;
+
+    width:78px;
+    height:75px;
+
+    left:16px;
+    top:0;
+
+    border:
+        9px solid #202936;
+
+    border-bottom:0;
+
+    border-radius:
+        55px 55px 0 0;
+}
+
+.ear-left,
+.ear-right{
+    position:absolute;
+
+    width:34px;
+    height:49px;
+
+    top:62px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #1b222c,
+            #303a48,
+            #171d26
+        );
+
+    border-radius:15px;
+}
+
+.ear-left{
+    left:3px;
+}
+
+.ear-right{
+    right:3px;
+}
+
+.ear-left:before,
+.ear-right:before{
+    content:"";
+
+    position:absolute;
+
+    width:20px;
+    height:32px;
+
+    left:7px;
+    top:8px;
+
+    background:#111820;
+
+    border-radius:10px;
+}
+
+
+/* =====================================================
+   STICKY NOTES
+===================================================== */
+
+.sticky{
+    position:absolute;
+
+    width:62px;
+    height:52px;
+
+    padding:8px;
+
+    font-size:8px;
+
+    line-height:1.4;
+
+    color:#52616b;
+
+    box-shadow:
+        2px 4px 8px rgba(30,40,45,.18);
+
+    cursor:pointer;
+
+    z-index:80;
+
+    transition:
+        transform .25s ease;
+}
+
+.sticky:hover{
+    transform:
+        translateY(-4px)
+        rotate(0deg);
+}
+
+.sticky.one{
+    left:220px;
+    bottom:140px;
+
+    background:#d9d3a9;
+
+    transform:rotate(5deg);
+}
+
+.sticky.two{
+    left:405px;
+    bottom:158px;
+
+    background:#c8d5d4;
+
+    transform:rotate(-6deg);
+}
+
+.sticky.three{
+    left:510px;
+    bottom:135px;
+
+    background:#d8c8bd;
+
+    transform:rotate(-4deg);
+}
+
+
+/* =====================================================
+   TABLE FRONT
+===================================================== */
+
+.table-front{
+    position:absolute;
+
+    width:500px;
+    height:75px;
+
+    left:150px;
+    bottom:10px;
+
+    background:#604a39;
+
+    border-radius:3px;
+
+    z-index:45;
+}
+
+
+/* =====================================================
+   POEM DRAWERS
+===================================================== */
+
+.drawer{
+    position:absolute;
+
+    width:110px;
+    height:42px;
+
+    top:16px;
+
+    background:#725640;
+
+    border:
+        1px solid rgba(45,35,25,.25);
+
+    border-radius:3px;
+
+    cursor:pointer;
+
+    transition:
+        transform .4s ease,
+        background .3s ease;
+}
+
+.drawer.left{
+    left:25px;
+}
+
+.drawer.right{
+    left:150px;
+}
+
+.drawer:hover{
+    background:#80644d;
+
+    transform:
+        translateY(-2px);
+}
+
+.handle{
+    position:absolute;
+
+    width:22px;
+    height:5px;
+
+    left:44px;
+    top:18px;
+
+    border-radius:5px;
+
+    background:#45372d;
+}
+
+.drawer-label{
+    position:absolute;
+
+    width:100%;
+
+    top:4px;
+
+    text-align:center;
+
+    color:rgba(237,226,213,.42);
+
+    font-size:6px;
+
+    letter-spacing:2px;
+
+    pointer-events:none;
+}
+
+
+/* =====================================================
+   TABLE LEGS
+===================================================== */
+
+.table-leg{
+    position:absolute;
+
+    width:38px;
+    height:145px;
+
+    bottom:-120px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #554131,
+            #66503e,
+            #4d3b2f
+        );
+
+    border-radius:3px;
+
+    z-index:8;
+}
+
+.table-leg.left{
+    left:175px;
+}
+
+.table-leg.right{
+    right:175px;
+}
+
+
+/* =====================================================
+   POPUP BACKDROP
+===================================================== */
+
+.popup-backdrop{
+    position:fixed;
+
+    inset:0;
+
+    background:
+        rgba(54,75,88,.20);
+
+    backdrop-filter:
+        blur(4px);
+
+    opacity:0;
+
+    pointer-events:none;
+
+    transition:.3s;
+
+    z-index:450;
+}
+
+.popup-backdrop.show{
+    opacity:1;
+    pointer-events:auto;
+}
+
+
+/* =====================================================
+   GENERAL POPUP
+===================================================== */
+
+.general-popup{
+    position:fixed;
+
+    left:50%;
+    top:50%;
+
+    width:430px;
+    max-width:82vw;
+
+    padding:30px;
+
+    background:
+        rgba(238,244,247,.98);
+
+    border-radius:10px;
+
+    box-shadow:
+        0 25px 70px rgba(30,50,65,.35);
+
+    transform:
+        translate(-50%,-50%)
+        scale(.85);
+
+    opacity:0;
+
+    pointer-events:none;
+
+    transition:.3s;
+
+    z-index:500;
+}
+
+.general-popup.show{
+    opacity:1;
+
+    pointer-events:auto;
+
+    transform:
+        translate(-50%,-50%)
+        scale(1);
+}
+
+.general-popup h2{
+    margin:0 0 10px;
+
+    color:#4c687c;
+
+    font-weight:normal;
+
+    letter-spacing:2px;
+}
+
+.general-popup p{
+    color:#61727e;
+
+    font-size:14px;
+
+    line-height:1.7;
+}
+
+
+/* =====================================================
+   ANONYMOUS LETTER POPUP
+===================================================== */
+
+.letter-popup{
+    position:fixed;
+
+    left:50%;
+    top:50%;
+
+    width:500px;
+    max-width:88vw;
+
+    padding:32px;
+
+    background:
+        #edf3f4;
+
+    border-radius:9px;
+
+    box-shadow:
+        0 25px 70px rgba(30,50,65,.40);
+
+    transform:
+        translate(-50%,-50%)
+        scale(.85);
+
+    opacity:0;
+
+    pointer-events:none;
+
+    transition:.3s;
+
+    z-index:580;
+}
+
+.letter-popup.show{
+    opacity:1;
+
+    pointer-events:auto;
+
+    transform:
+        translate(-50%,-50%)
+        scale(1);
+}
+
+.letter-popup h2{
+    margin:0 0 7px;
+
+    color:#4e6879;
+
+    font-weight:normal;
+
+    letter-spacing:2px;
+}
+
+.letter-intro{
+    margin:0 0 18px;
+
+    color:#74838b;
+
+    font-size:13px;
+
+    line-height:1.7;
+}
+
+.letter-note{
+    font-size:10px;
+
+    color:#98a3a7;
+
+    letter-spacing:1px;
+
+    margin-bottom:10px;
+}
+
+.letter-input{
+    width:100%;
+
+    min-height:170px;
+
+    resize:vertical;
+
+    border:
+        1px solid #d0dadd;
+
+    border-radius:5px;
+
+    padding:15px;
+
+    background:#f7f7f2;
+
+    color:#52616b;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:14px;
+
+    line-height:1.7;
+
+    outline:none;
+}
+
+.letter-input:focus{
+    border-color:#9db2bf;
+
+    box-shadow:
+        0 0 0 3px rgba(140,165,178,.12);
+}
+
+.send-letter{
+    margin-top:13px;
+
+    width:100%;
+
+    padding:12px;
+
+    border:none;
+
+    border-radius:4px;
+
+    background:#58758a;
+
+    color:white;
+
+    font-family:Georgia,serif;
+
+    cursor:pointer;
+
+    letter-spacing:1px;
+
+    transition:.25s;
+}
+
+.send-letter:hover{
+    background:#466477;
+}
+
+.letter-status{
+    min-height:20px;
+
+    margin-top:10px;
+
+    text-align:center;
+
+    color:#71858f;
+
+    font-size:11px;
+
+    letter-spacing:.5px;
+}
+
+
+/* =====================================================
+   POEM DIARY POPUP
+===================================================== */
+
+.poem-diary-popup{
+    position:fixed;
+
+    left:50%;
+    top:50%;
+
+    width:470px;
+    max-width:86vw;
+    max-height:82vh;
+
+    overflow-y:auto;
+
+    padding:30px;
+
+    background:
+        #eef3f4;
+
+    border-radius:8px;
+
+    box-shadow:
+        0 25px 70px rgba(30,50,65,.38);
+
+    transform:
+        translate(-50%,-50%)
+        scale(.85);
+
+    opacity:0;
+
+    pointer-events:none;
+
+    transition:.3s;
+
+    z-index:550;
+}
+
+.poem-diary-popup.show{
+    opacity:1;
+
+    pointer-events:auto;
+
+    transform:
+        translate(-50%,-50%)
+        scale(1);
+}
+
+.poem-diary-popup h2{
+    margin:
+        0 0 5px;
+
+    color:#4d697d;
+
+    font-weight:normal;
+
+    letter-spacing:2px;
+}
+
+.diary-description{
+    margin:
+        0 0 18px;
+
+    color:#71818b;
+
+    font-size:13px;
+
+    line-height:1.6;
+}
+
+.poem-button{
+    display:block;
+
+    width:100%;
+
+    margin-top:9px;
+
+    padding:11px 13px;
+
+    border:none;
+
+    border-radius:4px;
+
+    background:#d8e4eb;
+
+    color:#526c7e;
+
+    font-family:Georgia,serif;
+
+    cursor:pointer;
+
+    text-align:left;
+
+    transition:.2s;
+}
+
+.poem-button:hover{
+    background:#c8d9e4;
+
+    transform:
+        translateX(3px);
+}
+
+
+/* =====================================================
+   POEM READER
+===================================================== */
+
+.poem-popup{
+    position:fixed;
+
+    left:50%;
+    top:50%;
+
+    width:680px;
+    max-width:88vw;
+    max-height:82vh;
+
+    overflow-y:auto;
+
+    padding:38px;
+
+    background:
+        #f2eee5;
+
+    border-radius:7px;
+
+    box-shadow:
+        0 25px 70px rgba(30,45,55,.4);
+
+    transform:
+        translate(-50%,-50%)
+        scale(.85);
+
+    opacity:0;
+
+    pointer-events:none;
+
+    transition:.3s;
+
+    z-index:700;
+}
+
+.poem-popup.show{
+    opacity:1;
+
+    pointer-events:auto;
+
+    transform:
+        translate(-50%,-50%)
+        scale(1);
+}
+
+.poem-popup h2{
+    margin-top:0;
+
+    color:#536f82;
+
+    font-weight:normal;
+
+    letter-spacing:2px;
+}
+
+.poem-number{
+    color:#8a969b;
+
+    font-size:11px;
+
+    letter-spacing:2px;
+}
+
+.poem-text{
+    color:#56646d;
+
+    line-height:1.9;
+
+    font-size:15px;
+
+    white-space:pre-line;
+}
+
+.poem-author{
+    margin-top:25px;
+
+    text-align:right;
+
+    color:#71818b;
+
+    font-style:italic;
+}
+
+
+/* =====================================================
+   CLOSE
+===================================================== */
+
+.close{
+    position:absolute;
+
+    right:12px;
+    top:8px;
+
+    border:none;
+
+    background:none;
+
+    font-size:24px;
+
+    color:#71818c;
+
+    cursor:pointer;
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media(max-width:800px){
+
+    .study-area{
+        transform:
+            translateX(-50%)
+            scale(.72);
+
+        transform-origin:
+            bottom center;
+    }
+
+    .room-title{
+        font-size:22px;
+    }
+
+    .subtitle{
+        font-size:10px;
+    }
+
+    .poem-popup{
+        padding:28px;
+    }
+
+    .letter-popup{
+        padding:25px;
+    }
+
+    .pigeon{
+        right:3%;
+        top:20%;
+        transform:scale(.82);
+    }
+
+    .december-clue{
+        left:3%;
+        bottom:10%;
+    }
+}
+
+
+/* GRATITUDE LETTERS */
+.gratitude-popup{position:fixed;left:50%;top:50%;width:560px;max-width:90vw;max-height:84vh;overflow-y:auto;padding:34px;background:#eef4f6;border-radius:10px;box-shadow:0 25px 70px rgba(30,50,65,.42);transform:translate(-50%,-50%) scale(.85);opacity:0;pointer-events:none;transition:.3s;z-index:650}
+.gratitude-popup.show{opacity:1;pointer-events:auto;transform:translate(-50%,-50%) scale(1)}
+.gratitude-popup h2{margin:0 0 7px;color:#4d697d;font-weight:normal;letter-spacing:2px}
+.gratitude-intro{margin:0 0 18px;color:#71818b;font-size:13px;line-height:1.7}
+.gratitude-gate{display:flex;gap:8px;margin-bottom:10px}
+.gratitude-name{flex:1;min-width:0;padding:12px 13px;border:1px solid #d0dadd;border-radius:4px;background:#f8f8f4;color:#52616b;font-family:Georgia,serif;outline:none}
+.gratitude-name:focus{border-color:#9db2bf;box-shadow:0 0 0 3px rgba(140,165,178,.12)}
+.gratitude-open{padding:12px 16px;border:0;border-radius:4px;background:#58758a;color:white;font-family:Georgia,serif;cursor:pointer;letter-spacing:.5px}
+.gratitude-open:hover{background:#466477}
+.gratitude-status{min-height:20px;margin:8px 0 12px;color:#8a6969;font-size:11px}
+.gratitude-results{display:none}
+.gratitude-card{margin-top:14px;padding:23px 22px;background:#f7f3e9;border:1px solid rgba(115,105,90,.12);border-radius:6px;box-shadow:0 5px 15px rgba(50,55,60,.10)}
+.gratitude-card h3{margin:0 0 15px;color:#526b7c;font-weight:normal;letter-spacing:1.5px;font-size:18px}
+.gratitude-card-text{white-space:pre-line;color:#59666e;font-size:14px;line-height:1.85}
+.gratitude-sign{margin-top:18px;text-align:right;color:#7a878d;font-style:italic;font-size:12px}
+@media(max-width:600px){.gratitude-popup{padding:25px;max-height:86vh}.gratitude-gate{flex-direction:column}.gratitude-open{width:100%}.gratitude-card{padding:19px 17px}}
+
+</style>
+</head>
+
+
+<body>
+
+<div class="room">
+
+    <div class="glow"></div>
+
+
+    <!-- ROOM TITLE -->
+
+    <div class="room-title">
+        My Healing Room
+    </div>
+
+    <div class="subtitle">
+        little things, little memories
+    </div>
+
+
+    <!-- STARS -->
+
+    <div class="star star1">✦</div>
+    <div class="star star2">✧</div>
+    <div class="star star3">✦</div>
+    <div class="star star4">✧</div>
+    <div class="star star5">✦</div>
+    <div class="star star6">✧</div>
+
+
+    <!-- FLOATING SPIRALS -->
+
+    <div class="spiral spiral1">〰</div>
+    <div class="spiral spiral2">∿</div>
+    <div class="spiral spiral3">〰</div>
+    <div class="spiral spiral4">∿</div>
+    <div class="spiral spiral5">〰</div>
+    <div class="spiral spiral6">∿</div>
+
+
+    <!-- PARTICLES -->
+
+    <div class="particle p1"></div>
+    <div class="particle p2"></div>
+    <div class="particle p3"></div>
+    <div class="particle p4"></div>
+
+
+    <!-- =================================================
+         MYSTERIOUS DECEMBER CLUE
+    ================================================= -->
+
+    <div
+        class="december-clue"
+        onclick="openGeneral(
+            '...',
+            'Some things are better left unfinished for now.'
+        )"
+    >
+        wait till december.
+    </div>
+
+
+    <!-- =================================================
+         PIGEON
+    ================================================= -->
+
+    <div
+        class="pigeon"
+        onclick="openGratitudeLetters()"
+    >
+
+        <div class="pigeon-tail"></div>
+
+        <div class="pigeon-body"></div>
+
+        <div class="pigeon-wing"></div>
+
+        <div class="pigeon-neck"></div>
+
+        <div class="pigeon-head"></div>
+
+        <div class="pigeon-beak"></div>
+
+        <div class="pigeon-foot"></div>
+        <div class="pigeon-foot two"></div>
+
+        <div class="pigeon-letter"></div>
+
+    </div>
+
+
+    <!-- =================================================
+         STUDY AREA
+    ================================================= -->
+
+    <div class="study-area">
+
+
+        <!-- BOOKSHELF -->
+
+        <div class="bookshelf">
+
+            <div class="bookshelf-botanicals" aria-hidden="true">
+                <div class="bookshelf-stem"></div>
+                <div class="bookshelf-leaf l1"></div>
+                <div class="bookshelf-leaf l2"></div>
+                <div class="bookshelf-leaf l3"></div>
+                <div class="bookshelf-pot"></div>
+                <div class="bookshelf-flower">
+                    <span class="fp"></span>
+                    <span class="fp"></span>
+                    <span class="fp"></span>
+                    <span class="fp"></span>
+                    <span class="fp"></span>
+                    <span class="fc"></span>
+                </div>
+            </div>
+
+            <div class="shelf one"></div>
+            <div class="shelf two"></div>
+            <div class="shelf three"></div>
+
+            <div class="book book1"></div>
+            <div class="book book2"></div>
+            <div class="book book3"></div>
+
+            <div class="book book4"></div>
+            <div class="book book5"></div>
+
+        </div>
+
+
+        <!-- TABLE -->
+
+        <div class="table-top"></div>
+
+
+        <!-- CALENDAR -->
+
+        <div
+            class="calendar"
+            onclick="openGeneral(
+                'My Year',
+                'January · February · March · April · May · June · July · August · September · October · November · December'
+            )"
+        >
+
+            <div class="calendar-paper">
+
+                <div class="calendar-title">
+                    MY YEAR
+                </div>
+
+                <div class="month-grid">
+
+                    <div class="month">JAN</div>
+                    <div class="month">FEB</div>
+                    <div class="month">MAR</div>
+
+                    <div class="month">APR</div>
+                    <div class="month">MAY</div>
+                    <div class="month">JUN</div>
+
+                    <div class="month">JUL</div>
+                    <div class="month">AUG</div>
+                    <div class="month">SEP</div>
+
+                    <div class="month">OCT</div>
+                    <div class="month">NOV</div>
+
+                    <div class="month december">
+                        DEC
+                        <div class="push-pin"></div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="calendar-stand"></div>
+
+        </div>
+
+
+        <div class="bold-room-note">
+            SOMEWHERE BETWEEN
+            WHO I WAS AND WHO I’M BECOMING.
+        </div>
+
+        <div class="music-player" onclick="openMusic()">
+            <div class="music-player-title">a little music</div>
+            <div class="music-player-name">open my Spotify</div>
+            <button aria-label="Open Spotify">▶</button>
+        </div>
+
+        <!-- =================================================
+             MY LITTLE DIARY
+             THIS IS FOR ANONYMOUS LETTERS
+             NOT POEMS
+        ================================================= -->
+
+        <div
+            class="diary"
+            onclick="openLetterDiary()"
+        >
+
+            <div class="diary-cover"></div>
+
+            <div class="diary-pages"></div>
+
+            <div class="diary-title">
+                My Little Diary
+            </div>
+
+            <div class="diary-small">
+                LEAVE A LETTER
+            </div>
+
+        </div>
+
+
+        <!-- RED IPHONE 11 -->
+
+        <div
+            class="iphone"
+            onclick="openGeneral(
+                'Ridom’s iPhone 11',
+                'Ridom’s little red iPhone 11.'
+            )"
+        >
+
+            <div class="iphone-camera"></div>
+
+        </div>
+
+
+        <!-- SOUNDCORE Q20 -->
+
+        <div
+            class="headphones"
+            onclick="openGeneral(
+                'Soundcore Q20',
+                'A quiet corner for music and thoughts.'
+            )"
+        >
+
+            <div class="headband"></div>
+
+            <div class="ear-left"></div>
+            <div class="ear-right"></div>
+
+        </div>
+
+
+        <!-- STICKY NOTES -->
+
+        <div
+            class="sticky one"
+            onclick="openGeneral(
+                'A Little Reminder',
+                'Take things slowly. One little step at a time.'
+            )"
+        >
+            breathe.<br>
+            slowly.
+        </div>
+
+
+        <div
+            class="sticky two"
+            onclick="openGeneral(
+                'Today',
+                'Write something down that you want to remember.'
+            )"
+        >
+            write it<br>
+            down.
+        </div>
+
+
+        <div
+            class="sticky three"
+            onclick="openGeneral(
+                'Little Memories',
+                'Keep the small moments. They become memories.'
+            )"
+        >
+            little<br>
+            memories
+        </div>
+
+
+        <!-- =================================================
+             TABLE FRONT
+        ================================================= -->
+
+        <div class="table-front">
+
+
+            <!-- POEM DRAWER -->
+
+            <div
+                class="drawer left"
+                onclick="openPoemDiary()"
+            >
+
+                <div class="drawer-label">
+                    POEMS
+                </div>
+
+                <div class="handle"></div>
+
+            </div>
+
+
+            <!-- SECOND DRAWER -->
+
+            <div
+                class="drawer right"
+                onclick="openGeneral(
+                    'Little Drawer',
+                    'There will be more little memories here soon.'
+                )"
+            >
+
+                <div class="drawer-label">
+                    MEMORIES
+                </div>
+
+                <div class="handle"></div>
+
+            </div>
+
+        </div>
+
+
+        <!-- TABLE LEGS -->
+
+        <div class="table-leg left"></div>
+        <div class="table-leg right"></div>
+
+    </div>
+
+
+    <!-- FLOOR -->
+
+    <div class="floor"></div>
+
+</div>
+
+
+<!-- =====================================================
+     BACKDROP
+===================================================== -->
+
+<div
+    class="popup-backdrop"
+    id="backdrop"
+    onclick="closeEverything()"
+></div>
+
+
+<!-- =====================================================
+     ANONYMOUS LETTER DIARY
+===================================================== -->
+
+<div
+    class="letter-popup"
+    id="letterPopup"
+>
+
+    <button
+        class="close"
+        onclick="closeLetterDiary()"
+    >
+        ×
+    </button>
+
+
+    <h2>
+        Leave a Little Letter
+    </h2>
+
+
+    <p class="letter-intro">
+        You don't have to tell me who you are.
+        Just leave whatever you wanted to say.
+    </p>
+
+
+    <div class="letter-note">
+        NO NAME · NO EMAIL · JUST WORDS
+    </div>
+
+
+    <textarea
+        id="letterInput"
+        class="letter-input"
+        placeholder="write something here..."
+    ></textarea>
+
+
+    <button
+        class="send-letter"
+        onclick="sendAnonymousLetter()"
+    >
+        Send anonymously
+    </button>
+
+
+    <div
+        class="letter-status"
+        id="letterStatus"
+    ></div>
+
+</div>
+
+
+<!-- GRATITUDE LETTERS POPUP -->
+<div class="gratitude-popup" id="gratitudePopup">
+    <button class="close" onclick="closeGratitudeLetters()">×</button>
+    <h2>My Gratitude Letters</h2>
+    <p class="gratitude-intro">Some people left a little piece of themselves in my life. If your name is here, enter it below to open your letter.</p>
+    <div class="gratitude-gate">
+        <input id="gratitudeName" class="gratitude-name" type="text" autocomplete="off" placeholder="enter your name..." onkeydown="if(event.key==='Enter') showGratitudeLetter()">
+        <button class="gratitude-open" onclick="showGratitudeLetter()">Open letter</button>
+    </div>
+    <div class="gratitude-status" id="gratitudeStatus"></div>
+    <div class="gratitude-results" id="gratitudeResults"></div>
+</div>
+
+<!-- =====================================================
+     POEM DIARY POPUP
+===================================================== -->
+
+<div
+    class="poem-diary-popup"
+    id="poemDiary"
+>
+
+    <button
+        class="close"
+        onclick="closePoemDiary()"
+    >
+        ×
+    </button>
+
+
+    <h2>
+        Poem Drawer
+    </h2>
+
+    <p class="diary-description">
+        A small collection of Ridom's poems.
+        Choose a page to read.
+    </p>
+
+
+    <button
+        class="poem-button"
+        onclick="openPoem(0)"
+    >
+        01 · Boatman, Deliver Me
+    </button>
+
+
+    <button
+        class="poem-button"
+        onclick="openPoem(1)"
+    >
+        02 · Metamorphosis
+    </button>
+
+
+    <button
+        class="poem-button"
+        onclick="openPoem(2)"
+    >
+        03 · The Equation of Emptiness
+    </button>
+
+
+    <button
+        class="poem-button"
+        onclick="openPoem(3)"
+    >
+        04 · পথও পিছু টানে?
+    </button>
+
+
+    <button
+        class="poem-button"
+        onclick="openPoem(4)"
+    >
+        05 · The care that come too late
+    </button>
+
+
+    <button
+        class="poem-button"
+        disabled
+        style="opacity:.45;cursor:default;"
+    >
+        06 · Coming soon...
+    </button>
+
+
+    <button
+        class="poem-button"
+        disabled
+        style="opacity:.45;cursor:default;"
+    >
+        07 · Coming soon...
+    </button>
+
+
+    <button
+        class="poem-button"
+        disabled
+        style="opacity:.45;cursor:default;"
+    >
+        08 · Coming soon...
+    </button>
+
+
+    <button
+        class="poem-button"
+        disabled
+        style="opacity:.45;cursor:default;"
+    >
+        09 · Coming soon...
+    </button>
+
+
+    <button
+        class="poem-button"
+        disabled
+        style="opacity:.45;cursor:default;"
+    >
+        10 · Coming soon...
+    </button>
+
+</div>
+
+
+<!-- =====================================================
+     POEM READER
+===================================================== -->
+
+<div
+    class="poem-popup"
+    id="poemPopup"
+>
+
+    <button
+        class="close"
+        onclick="closePoem()"
+    >
+        ×
+    </button>
+
+
+    <div
+        class="poem-number"
+        id="poemNumber"
+    >
+        POEM
+    </div>
+
+
+    <h2 id="poemTitle">
+        Poem
+    </h2>
+
+
+    <div
+        class="poem-text"
+        id="poemText"
+    ></div>
+
+
+    <div
+        class="poem-author"
+        id="poemAuthor"
+    ></div>
+
+</div>
+
+
+<!-- =====================================================
+     GENERAL POPUP
+===================================================== -->
+
+<div
+    class="general-popup"
+    id="generalPopup"
+>
+
+    <button
+        class="close"
+        onclick="closeGeneral()"
+    >
+        ×
+    </button>
+
+
+    <h2 id="generalTitle">
+        My Healing Room
+    </h2>
+
+
+    <p id="generalText"></p>
+
+</div>
+
+
+<script>
+
+
+/* =====================================================
+   POEMS
+===================================================== */
+
+const poems = [
+
+    {
+        number:"01",
+
+        title:"Boatman, Deliver Me",
+
+        text:`Boatman deliver me
+Why do you pull me against the flowing stream?
+I wished only to cross this quiet river—
+Then why have you set me adrift
+upon this vast sea?
+Like a single drop of dew, vanishing into the sea.
+
+Boatman, why does our vessel move
+against the current’s course?
+Why is the sharp sound of your boat's friction louder even than the ocean waves?
+Why does this little boat never pause or rest?
+
+O boatman, boatman, boatman—halt this boat just once!
+Deliver me to that long-desired shore.
+
+Boatman, steer this vessel softly and slow,
+So I may feel the silent turning of
+the earth beneath my soul.`,
+
+        author:"— Ridom"
+    },
+
+
+    {
+        number:"02",
+
+        title:"Metamorphosis",
+
+        text:`I wish I could become
+something like butterflies —
+born as something small,
+dying as something new.
+
+I want to be metamorphosis itself,
+grow wings sharp and wide,
+tear through this fate,
+forget every chain
+my mind ever held me in.
+
+Changing from Homo sapiens,
+shedding memories like old skin,
+chasing the only dream
+that still burns inside me.`,
+
+        author:"— Ridom"
+    },
+
+
+    {
+        number:"03",
+
+        title:"The Equation of Emptiness",
+
+        text:`3:04 o’clock.
+Dogs were calling, but no one heard them, except me.
+I stayed with my dreams,
+Thinking gravity never forgets its duty.
+But how could you?
+
+It means…
+Time became the witness,
+Dates became the victims,
+And years turned into smoke, slowly disappearing —
+Just passing over.
+
+Then it was 4:30,
+The sun became visible,
+No one noticed the funeral of the night`,
+
+        author:"— Ridom"
+    },
+
+
+    {
+        number:"04",
+
+        title:"পথও পিছু টানে?",
+
+        text:`পথে পথে সত্তা কাটে,
+পথ তবুও হয় না শেষ...
+
+আকুলতা কেটে যায় মেঘের ছায়ায়,
+সরলতা ঝরে পড়ে গোধূলির তলায়
+পিছুটান আটকে ধরে ধরণীর মায়ায়—
+
+ধরণী আঁকড়ে ধরে রহস্যময় আদলে,
+পথ যে এখনো বাকি, সমুদ্র আর বাদলে।
+
+পাহাড়ের সেই চূড়ায় ওঠার আগেই—
+কি হয়ে যাবে এই 'নির' ক্লান্ত?`,
+
+        author:"— Ridom"
+    },
+
+
+    {
+        number:"05",
+
+        title:"The care that come too late",
+
+        text:`When summer’s warmth was gone,
+they came with buckets, pouring water.
+They asked, “Where have the flowers gone?”
+They tilted their heads in wonder—
+“Why has all the green fled?”
+
+Now they water the root-sickened tree,
+their voices thick with blame:
+“This tree is worthless now—
+no fruit, no shade, no use.”
+
+Yet when its veins once begged for rain,
+when its brittle arms cracked with thirst,
+no shadow crossed the burning ground.
+
+And now—
+the tree, known only for its neglect,
+lies silent from root to final, grasping tip—
+a monument
+to the care that came too late.`,
+
+        author:"— Ridom"
+    }
+
+];
+
+
+/* GRATITUDE [{"name": "Rudaba", "text": "First of all, thank you for being one of the greatest parts of my life. It’s kinda funny the way we became friends. You know, I don’t have that many friends, just a few, and among them, you are one of the loveliest people I’ve met.\n\nI really love meeting you. Thank you for always helping me in class and for everything you’ve done for me. With you, learning French isn’t boring at all. I really love the way we match and how comfortable our friendship feels.\n\nYou’re such a nice friend. When I was lonely and suffering, you were always there beside me, ever since our third French class. Tbh, I never imagined that I would have a friend like you.\n\nThank you again. Thank you just for being in my life. I’m so grateful to have you as my friend. Tu es une meilleure amie.\n\nI wish you have a বড়লোক জামাই, a beautiful life, and a great career. I hope you always stay happy and achieve everything you want in life.\n\nThank you for being you"}, {"name": "Sneha", "text": "First of all, thank you for being my friend. You’re one of my great friends and also such a supportive friend. Meeting you was such a privilege.\n\nYou’re one of my oldest friends here that I’m writing letters to. We met in May 2023, and tbh, you were so sweet from the beginning. Maybe that’s one of the reasons our friendship still remains.\n\nI love the way we share our time, our sadness, and everything with each other. I remember we used to talk aaa lot, especially during our SSC er age. And I’m so sorry that ekhon eto kotha hoy na. Still, I feel really good every time I talk with you!!\n\nI just want you to know that I’m so grateful to have you in my 18th year of life. Having you as a friend is something I’ll always be thankful for.\n\nThank you for staying, for all the memories, and simply for being you. 🤍"}, {"name": "Santonu", "text": "First of all, thank you for everything, Santo. I know you’re one of my newer friends, and as you know, I don’t have that many friends. My circle is pretty small. But what we have done as friends, I honestly haven’t done that with anyone else before—like going out, going on long journeys, and visiting different schools and colleges together.\n\nAlthough some of those trips were for a purpose, let me tell you something: in my life, that was the first time I actually went out with a friend like that. After meeting you, life somehow became happier.\n\nThe way you’re helping me turn my ideas into reality, I’m so grateful to you for that. And visiting different schools and colleges with you was such a nice journey. I know that might seem simple to you, but for me, it really wasn’t. I’m honestly getting emotional while writing this.\n\nThank you just for being in my life. At least before turning 18, I was able to move around with a friend, not alone. And that means a lot to me.\n\nI wish you a nice, soft life, and I hope all your dreams come true. I know we’ll become even better friends, and together, we’ll change Bangladesh and do things that will make us the best and greatest!!\n\nThanks for everything, Santo. 🤍"}, {"name": "Yousha", "text": "First of all, thank you, Yousha, for just being in my life. I’m so grateful to have you. Let me just summarize something from my own diary.\n\nOn 20.9.2025, I wrote about you. I wrote that I had met someone whom I could properly talk to!!\n\nAt that time, I was very depressed. When I went to college, I found out that I just couldn’t fit in. I had always been like that, but for college, I was really hopeful that I would meet someone with whom I could connect myself.\n\nIn college, you were the one who was good and gentle to me, ig. I think everyone was good in their own way, but you were the one who seemed nice to me. We talked a lot on the bus, and I still remember everything.\n\nWe talked about everything—from ৩ গোয়েন্দা to writing our own books, literally everything!!\n\nAnd now we’ve become friends again, maybe even closer than before. Thank you again for being in my life.\n\nআর হ্যাঁ, একদিন time করে আমরা বের হব, পাঠক সমাবেশে যাব, and also অনেক জায়গায় ঘুরব. We still have so many things to do!!\n\nI wish you a nice, soft, and gentle life. May all your dreams come true, and I hope you get to go abroad and build the life you want.\n\nThank you for being a part of my life. 🤍"}, {"name": "Nabiha", "text": "Hello, Nabiha! I just wanted to thank you for being my friend. You were the one who made me realize that I’m not the only victim of that monster, Monsieur 😭\n\nAlso, you have this positive essence somehow. I feel like I should definitely include you in my letter. As you know, my friend circle is pretty small, and you’re one of them.\n\nAgain, thank you just for being in my life. And I wish you become a successful businesswoman, and er por tor company te amre onek beton er ekta job diye dibi 😭🙏\n\nNvm, I wish you a nice, soft, and gentle life. I hope all of your dreams come true and you achieve everything you want.\n\nThank you for being you. 🤍"}, {"name": "Khalid", "text": "First of all, thanks for being in my life.\n\nKhalid, I have very few friends, and among them, you’re one of the people who became very close to me in the fastest way. Idk how you became such a good friend of mine. Maybe it’s because we share the same music taste and so many other things.\n\nAnd you’re also the one of my newer friends that I’m writing a letter to, which honestly feels kinda special.\n\nI’m so grateful to have you as my friend in my 18th year of life. I’m really glad that I got to know you and have you as a friend.\n\nI wish you a soft and nice life. Hopefully, তোমার crush-এর সাথে relation হয়ে যাবে, then amre tumi pizza treat diba 😗\n\nStay happy, bro. Thanks for being a part of my life. 🤍"}, {"name": "Lloyd", "text": "Thank you for being my friend. Now you’re one of my closest and most supportive friends. As you know, I don’t have that many friends, and I’m writing this gratitude letter to a few of my friends, and you’re one of them.\n\nI actually love the way our friendship has grown 😭. And I’m also really proud to have you as my friend.\n\nEven though our friendship broke at one point, somehow we found our way back again. And honestly, I’m glad we did.\n\nI wish you a nice, lovely, and gentle life. I hope all of your dreams come true and you get everything you wish for.\n\nThank you for being a part of my life. 🤍"}, {"name": "Chaya", "text": "Thanks for being in my life. I’m so grateful to have you as my friend. In my 18th year of life, you’re one of my favourite online friends, someone who helped me heal and always appreciated me.\n\nI’m really grateful for all the kindness and support you’ve given me. Even though we’re online friends, you’ve still been an important part of my life.\n\nI wish you a nice, soft, and gentle life. I hope all of your dreams come true. And hopefully, we can meet one day. 🤍"}, {"name": "Kashfia", "text": "First of all, thanks for being my friend in my 18th year of life. You’re one of the people whom I made a close friend, even a best friend. I know we used to talk a lot, but now we don’t talk that much anymore.\n\nLet me remind you how it all started and how coincidentally we became friends. I still remember in school, when nobody was really beside me, you were there. You were the one.\n\nI’m so proud of you, and I feel really proud to have you as my friend. You’re one of the people I talked to aaaa lot with. I honestly can’t even write down how important you are to me or how much you mean to me.\n\nI’m wishing you a very nice and lovely college life. Hopefully, tor life aro best hobe, school life-er moto hobe na. Tui abar friend banate parbi, moja korte parbi, and make lots of new memories.\n\nAnd also, mind it—tui ja-i koris na keno, ami achi tor pashe.\n\nThanks again. I’m so grateful to have you in my life.\n\nThanksss. 🤍"}, {"name": "Nahid", "text": "First of all, thank you for being such a big part of my life.\n\nTrust me, in my 18th year of life, I can’t even imagine my life without my cousins. Among them, you’re my favourite cousin. We’ve shared so many memories together that I can’t even count them, let alone write them all down.\n\nI’m so proud to have you as my cousin, as my brother, and as someone who has always been a part of my life. I honestly can’t even express in words or write down how grateful I am to you.\n\nI wish you a nice, soft, and gentle life. I know you’re going through a devastating time right now, but trust me, things will get better. I really hope all of your dreams come true soon and that you get the happiness you deserve.\n\nThank you for being a part of my life, Nahid. 🤍"}, {"name": "Sakik", "text": "First of all, I’m so proud to have you in my life. I can’t even imagine that I would be turning 18 without you guys.\n\nI love you guys aaaa lots. We have such a long and beautiful collection of memories together. The memories we’ve made, I couldn’t even count them or write them all down. Since the day I was born, we’ve been together, and honestly, without my cousins, I can’t even imagine my life.\n\nIn my 18th year of life, you guys are some of the people I love the most. I’m just getting emotional while writing this. I’m so grateful for your presence in my life!!\n\nThank you for all the memories, all the time, and simply for being there. 😭\n\nI wish you a very nice and sweet life. And haan, ekdin tumi onek borolok hoye jaba, pore only 1B diye diba 😭😭😭\n\nThanks again. 🤍"}, {"name": "Shifa", "text": "I just don’t know how to start or where to start writing this letter. I just wanted to tell you how proud I am to have you as my cousin, as my big sister.\n\nWe’ve been together since I was born, and honestly, I’m just getting emotional while writing this. I don’t even know what to write or how to thank you for always being present in my life. Without you guys, I can’t even imagine making it to 18.\n\nI can’t even write about all the memories we’ve made. We’ve spent so many countless moments together that I could never put all of them into words.\n\nAlso, I wanna thank you for being such a good listener all the time. Whenever I needed help or just needed someone to talk to, you were always there. And I love that you’re soooo sweet and gentle. কিন্তু ছোটবেলায় আমার চুল টানসোস আর kamchi দিসোস 😭😭\n\nI’m really proud of you, Shifa. Just having you as my cousin, my sister, and having all of your support means so much to me. I’m genuinely so grateful for you.\n\nI wish you a very nice and lovely life. Hopefully, all of your dreams come true and you get everything you want in life.\n\nI wanna thank you again just for being present in my life. I’m sooo grateful to you.\n\nHae, ekdin tui Italy-te ekta old antique palace kinbi, ar amre Edinburgh-e ekta kine dibi 😭😭. Hae, bura beda paile amake kintu 25% wealth dibi 😭\n\nThanks for everything, Shifa. 🤍"}, {"name": "Sweety", "text": "Thank you for being in my life. I’m so grateful to have you as my cousin and my big sister. You’ve always been so supportive, and I’m really proud to have you in my life.\n\nThe way you helped me heal after my result is something I’ll never forget. You were so kind to me when I really needed it, and that means a lot to me.\n\nI wish you the very best. I hope all of your dreams come true and that you become a great fashion designer, a successful businesswoman, and obviously, so rich that you can give me lots of money 😭😭\n\nThanks again for everything and for always being there for me. 🤍"}, {"name": "Bushra", "text": "First of all, thank you for being my friend. And honestly, it’s also so unpredictable je tor sathe eto bhalo friendship hoye jabe.\n\nSchool-er conflict theke college-e giye amader dujon-er eto bhalo friendship hobe—this was honestly so unpredictable. 😭\n\nI’m really proud of you, and I’m really glad to have you in my life. You always give me this nonchalant and positive vibe, and that’s something I really like about you.\n\nYou’ve also helped me a lot in college, and somehow we’ve become such close friends. I’m really grateful for that.\n\nI wish you the very best. Hopefully, all of your dreams come true and you get everything you want in life.\n\nThanks for being a part of my life. 🤍"}] */
+const gratitudeLetters = [{"name": "Rudaba", "text": "First of all, thank you for being one of the greatest parts of my life. It’s kinda funny the way we became friends. You know, I don’t have that many friends, just a few, and among them, you are one of the loveliest people I’ve met.\n\nI really love meeting you. Thank you for always helping me in class and for everything you’ve done for me. With you, learning French isn’t boring at all. I really love the way we match and how comfortable our friendship feels.\n\nYou’re such a nice friend. When I was lonely and suffering, you were always there beside me, ever since our third French class. Tbh, I never imagined that I would have a friend like you.\n\nThank you again. Thank you just for being in my life. I’m so grateful to have you as my friend. Tu es une meilleure amie.\n\nI wish you have a বড়লোক জামাই, a beautiful life, and a great career. I hope you always stay happy and achieve everything you want in life.\n\nThank you for being you"}, {"name": "Sneha", "text": "First of all, thank you for being my friend. You’re one of my great friends and also such a supportive friend. Meeting you was such a privilege.\n\nYou’re one of my oldest friends here that I’m writing letters to. We met in May 2023, and tbh, you were so sweet from the beginning. Maybe that’s one of the reasons our friendship still remains.\n\nI love the way we share our time, our sadness, and everything with each other. I remember we used to talk aaa lot, especially during our SSC er age. And I’m so sorry that ekhon eto kotha hoy na. Still, I feel really good every time I talk with you!!\n\nI just want you to know that I’m so grateful to have you in my 18th year of life. Having you as a friend is something I’ll always be thankful for.\n\nThank you for staying, for all the memories, and simply for being you. 🤍"}, {"name": "Santonu", "text": "First of all, thank you for everything, Santo. I know you’re one of my newer friends, and as you know, I don’t have that many friends. My circle is pretty small. But what we have done as friends, I honestly haven’t done that with anyone else before—like going out, going on long journeys, and visiting different schools and colleges together.\n\nAlthough some of those trips were for a purpose, let me tell you something: in my life, that was the first time I actually went out with a friend like that. After meeting you, life somehow became happier.\n\nThe way you’re helping me turn my ideas into reality, I’m so grateful to you for that. And visiting different schools and colleges with you was such a nice journey. I know that might seem simple to you, but for me, it really wasn’t. I’m honestly getting emotional while writing this.\n\nThank you just for being in my life. At least before turning 18, I was able to move around with a friend, not alone. And that means a lot to me.\n\nI wish you a nice, soft life, and I hope all your dreams come true. I know we’ll become even better friends, and together, we’ll change Bangladesh and do things that will make us the best and greatest!!\n\nThanks for everything, Santo. 🤍"}, {"name": "Yousha", "text": "First of all, thank you, Yousha, for just being in my life. I’m so grateful to have you. Let me just summarize something from my own diary.\n\nOn 20.9.2025, I wrote about you. I wrote that I had met someone whom I could properly talk to!!\n\nAt that time, I was very depressed. When I went to college, I found out that I just couldn’t fit in. I had always been like that, but for college, I was really hopeful that I would meet someone with whom I could connect myself.\n\nIn college, you were the one who was good and gentle to me, ig. I think everyone was good in their own way, but you were the one who seemed nice to me. We talked a lot on the bus, and I still remember everything.\n\nWe talked about everything—from ৩ গোয়েন্দা to writing our own books, literally everything!!\n\nAnd now we’ve become friends again, maybe even closer than before. Thank you again for being in my life.\n\nআর হ্যাঁ, একদিন time করে আমরা বের হব, পাঠক সমাবেশে যাব, and also অনেক জায়গায় ঘুরব. We still have so many things to do!!\n\nI wish you a nice, soft, and gentle life. May all your dreams come true, and I hope you get to go abroad and build the life you want.\n\nThank you for being a part of my life. 🤍"}, {"name": "Nabiha", "text": "Hello, Nabiha! I just wanted to thank you for being my friend. You were the one who made me realize that I’m not the only victim of that monster, Monsieur 😭\n\nAlso, you have this positive essence somehow. I feel like I should definitely include you in my letter. As you know, my friend circle is pretty small, and you’re one of them.\n\nAgain, thank you just for being in my life. And I wish you become a successful businesswoman, and er por tor company te amre onek beton er ekta job diye dibi 😭🙏\n\nNvm, I wish you a nice, soft, and gentle life. I hope all of your dreams come true and you achieve everything you want.\n\nThank you for being you. 🤍"}, {"name": "Khalid", "text": "First of all, thanks for being in my life.\n\nKhalid, I have very few friends, and among them, you’re one of the people who became very close to me in the fastest way. Idk how you became such a good friend of mine. Maybe it’s because we share the same music taste and so many other things.\n\nAnd you’re also the one of my newer friends that I’m writing a letter to, which honestly feels kinda special.\n\nI’m so grateful to have you as my friend in my 18th year of life. I’m really glad that I got to know you and have you as a friend.\n\nI wish you a soft and nice life. Hopefully, তোমার crush-এর সাথে relation হয়ে যাবে, then amre tumi pizza treat diba 😗\n\nStay happy, bro. Thanks for being a part of my life. 🤍"}, {"name": "Lloyd", "text": "Thank you for being my friend. Now you’re one of my closest and most supportive friends. As you know, I don’t have that many friends, and I’m writing this gratitude letter to a few of my friends, and you’re one of them.\n\nI actually love the way our friendship has grown 😭. And I’m also really proud to have you as my friend.\n\nEven though our friendship broke at one point, somehow we found our way back again. And honestly, I’m glad we did.\n\nI wish you a nice, lovely, and gentle life. I hope all of your dreams come true and you get everything you wish for.\n\nThank you for being a part of my life. 🤍"}, {"name": "Chaya", "text": "Thanks for being in my life. I’m so grateful to have you as my friend. In my 18th year of life, you’re one of my favourite online friends, someone who helped me heal and always appreciated me.\n\nI’m really grateful for all the kindness and support you’ve given me. Even though we’re online friends, you’ve still been an important part of my life.\n\nI wish you a nice, soft, and gentle life. I hope all of your dreams come true. And hopefully, we can meet one day. 🤍"}, {"name": "Kashfia", "text": "First of all, thanks for being my friend in my 18th year of life. You’re one of the people whom I made a close friend, even a best friend. I know we used to talk a lot, but now we don’t talk that much anymore.\n\nLet me remind you how it all started and how coincidentally we became friends. I still remember in school, when nobody was really beside me, you were there. You were the one.\n\nI’m so proud of you, and I feel really proud to have you as my friend. You’re one of the people I talked to aaaa lot with. I honestly can’t even write down how important you are to me or how much you mean to me.\n\nI’m wishing you a very nice and lovely college life. Hopefully, tor life aro best hobe, school life-er moto hobe na. Tui abar friend banate parbi, moja korte parbi, and make lots of new memories.\n\nAnd also, mind it—tui ja-i koris na keno, ami achi tor pashe.\n\nThanks again. I’m so grateful to have you in my life.\n\nThanksss. 🤍"}, {"name": "Nahid", "text": "First of all, thank you for being such a big part of my life.\n\nTrust me, in my 18th year of life, I can’t even imagine my life without my cousins. Among them, you’re my favourite cousin. We’ve shared so many memories together that I can’t even count them, let alone write them all down.\n\nI’m so proud to have you as my cousin, as my brother, and as someone who has always been a part of my life. I honestly can’t even express in words or write down how grateful I am to you.\n\nI wish you a nice, soft, and gentle life. I know you’re going through a devastating time right now, but trust me, things will get better. I really hope all of your dreams come true soon and that you get the happiness you deserve.\n\nThank you for being a part of my life, Nahid. 🤍"}, {"name": "Sakik", "text": "First of all, I’m so proud to have you in my life. I can’t even imagine that I would be turning 18 without you guys.\n\nI love you guys aaaa lots. We have such a long and beautiful collection of memories together. The memories we’ve made, I couldn’t even count them or write them all down. Since the day I was born, we’ve been together, and honestly, without my cousins, I can’t even imagine my life.\n\nIn my 18th year of life, you guys are some of the people I love the most. I’m just getting emotional while writing this. I’m so grateful for your presence in my life!!\n\nThank you for all the memories, all the time, and simply for being there. 😭\n\nI wish you a very nice and sweet life. And haan, ekdin tumi onek borolok hoye jaba, pore only 1B diye diba 😭😭😭\n\nThanks again. 🤍"}, {"name": "Shifa", "text": "I just don’t know how to start or where to start writing this letter. I just wanted to tell you how proud I am to have you as my cousin, as my big sister.\n\nWe’ve been together since I was born, and honestly, I’m just getting emotional while writing this. I don’t even know what to write or how to thank you for always being present in my life. Without you guys, I can’t even imagine making it to 18.\n\nI can’t even write about all the memories we’ve made. We’ve spent so many countless moments together that I could never put all of them into words.\n\nAlso, I wanna thank you for being such a good listener all the time. Whenever I needed help or just needed someone to talk to, you were always there. And I love that you’re soooo sweet and gentle. কিন্তু ছোটবেলায় আমার চুল টানসোস আর kamchi দিসোস 😭😭\n\nI’m really proud of you, Shifa. Just having you as my cousin, my sister, and having all of your support means so much to me. I’m genuinely so grateful for you.\n\nI wish you a very nice and lovely life. Hopefully, all of your dreams come true and you get everything you want in life.\n\nI wanna thank you again just for being present in my life. I’m sooo grateful to you.\n\nHae, ekdin tui Italy-te ekta old antique palace kinbi, ar amre Edinburgh-e ekta kine dibi 😭😭. Hae, bura beda paile amake kintu 25% wealth dibi 😭\n\nThanks for everything, Shifa. 🤍"}, {"name": "Sweety", "text": "Thank you for being in my life. I’m so grateful to have you as my cousin and my big sister. You’ve always been so supportive, and I’m really proud to have you in my life.\n\nThe way you helped me heal after my result is something I’ll never forget. You were so kind to me when I really needed it, and that means a lot to me.\n\nI wish you the very best. I hope all of your dreams come true and that you become a great fashion designer, a successful businesswoman, and obviously, so rich that you can give me lots of money 😭😭\n\nThanks again for everything and for always being there for me. 🤍"}, {"name": "Bushra", "text": "First of all, thank you for being my friend. And honestly, it’s also so unpredictable je tor sathe eto bhalo friendship hoye jabe.\n\nSchool-er conflict theke college-e giye amader dujon-er eto bhalo friendship hobe—this was honestly so unpredictable. 😭\n\nI’m really proud of you, and I’m really glad to have you in my life. You always give me this nonchalant and positive vibe, and that’s something I really like about you.\n\nYou’ve also helped me a lot in college, and somehow we’ve become such close friends. I’m really grateful for that.\n\nI wish you the very best. Hopefully, all of your dreams come true and you get everything you want in life.\n\nThanks for being a part of my life. 🤍"}];
+function openGratitudeLetters(){
+    closeGeneral(false); closePoem(false); closePoemDiary(false); closeLetterDiary(false);
+    document.getElementById('gratitudePopup').classList.add('show');
+    document.getElementById('gratitudeName').value='';
+    document.getElementById('gratitudeStatus').innerHTML='';
+    document.getElementById('gratitudeResults').innerHTML='';
+    document.getElementById('gratitudeResults').style.display='none';
+    showBackdrop();
+    setTimeout(function(){document.getElementById('gratitudeName').focus()},250);
+}
+function closeGratitudeLetters(hide=true){document.getElementById('gratitudePopup').classList.remove('show');if(hide)hideBackdrop()}
+function showGratitudeLetter(){
+    const input=document.getElementById('gratitudeName'),status=document.getElementById('gratitudeStatus'),results=document.getElementById('gratitudeResults');
+    const entered=input.value.trim().toLowerCase(); results.innerHTML=''; results.style.display='none';
+    if(!entered){status.innerHTML='Enter a name first.';return}
+    const matches=gratitudeLetters.filter(letter=>letter.name.toLowerCase()===entered);
+    if(!matches.length){status.innerHTML='No letter was found under that name.';return}
+    status.innerHTML='';
+    matches.forEach(letter=>{
+        const card=document.createElement('div'); card.className='gratitude-card';
+        const title=document.createElement('h3'); title.textContent=letter.name+',';
+        const text=document.createElement('div'); text.className='gratitude-card-text'; text.textContent=letter.text;
+        const sign=document.createElement('div'); sign.className='gratitude-sign'; sign.textContent='— Ridom';
+        card.append(title,text,sign); results.appendChild(card);
+    });
+    results.style.display='block';
+}
+
+
+/* =====================================================
+   BACKDROP
+===================================================== */
+
+function showBackdrop(){
+
+    document
+        .getElementById("backdrop")
+        .classList.add("show");
+}
+
+
+function hideBackdrop(){
+
+    document
+        .getElementById("backdrop")
+        .classList.remove("show");
+}
+
+
+/* =====================================================
+   GENERAL POPUP
+===================================================== */
+
+function openGeneral(title,text){
+
+    closePoem(false);
+    closePoemDiary(false);
+    closeLetterDiary(false);
+    closeGratitudeLetters(false);
+
+    document
+        .getElementById("generalTitle")
+        .innerHTML = title;
+
+    document
+        .getElementById("generalText")
+        .innerHTML = text;
+
+    document
+        .getElementById("generalPopup")
+        .classList.add("show");
+
+    showBackdrop();
+}
+
+
+function closeGeneral(hide=true){
+
+    document
+        .getElementById("generalPopup")
+        .classList.remove("show");
+
+    if(hide){
+        hideBackdrop();
+    }
+}
+
+
+/* =====================================================
+   ANONYMOUS LETTER DIARY
+===================================================== */
+
+function openMusic(){
+    const spotifyUrl = 'https://open.spotify.com/user/31r7zex3rdrmr2ck7d23j7hlyjiq';
+    
+    window.open(spotifyUrl,'_blank','noopener');
+}
+
+function openLetterDiary(){
+
+    closeGeneral(false);
+    closePoem(false);
+    closePoemDiary(false);
+    closeGratitudeLetters(false);
+
+    document
+        .getElementById("letterPopup")
+        .classList.add("show");
+
+    document
+        .getElementById("letterStatus")
+        .innerHTML = "";
+
+    showBackdrop();
+}
+
+
+function closeLetterDiary(hide=true){
+
+    document
+        .getElementById("letterPopup")
+        .classList.remove("show");
+
+    if(hide){
+        hideBackdrop();
+    }
+}
+
+
+/* =====================================================
+   SEND ANONYMOUS LETTER
+===================================================== */
+
+function sendAnonymousLetter(){
+
+    const input =
+        document.getElementById("letterInput");
+
+    const status =
+        document.getElementById("letterStatus");
+
+    const letter =
+        input.value.trim();
+
+
+    if(!letter){
+
+        status.innerHTML =
+            "Write something first.";
+
+        return;
+    }
+
+
+    /*
+       DEMO STORAGE
+
+       The letter is saved only in this browser.
+       Later we can connect this function to
+       a real database / form service.
+    */
+
+    const existing =
+        JSON.parse(
+            localStorage.getItem("ridomLetters") || "[]"
+        );
+
+
+    existing.push({
+
+        message:letter,
+
+        time:new Date().toISOString()
+
+    });
+
+
+    localStorage.setItem(
+        "ridomLetters",
+        JSON.stringify(existing)
+    );
+
+
+    input.value = "";
+
+
+    status.innerHTML =
+        "Your letter disappeared quietly into the room.";
+
+
+    setTimeout(function(){
+
+        status.innerHTML =
+            "Thank you for leaving it here.";
+
+    },1800);
+}
+
+
+/* =====================================================
+   POEM DIARY
+===================================================== */
+
+function openPoemDiary(){
+
+    closeGeneral(false);
+    closeLetterDiary(false);
+    closeGratitudeLetters(false);
+
+    document
+        .getElementById("poemDiary")
+        .classList.add("show");
+
+    showBackdrop();
+}
+
+
+function closePoemDiary(hide=true){
+
+    document
+        .getElementById("poemDiary")
+        .classList.remove("show");
+
+    if(hide){
+        hideBackdrop();
+    }
+}
+
+
+/* =====================================================
+   OPEN POEM
+===================================================== */
+
+function openPoem(index){
+
+    const poem = poems[index];
+
+    if(!poem){
+        return;
+    }
+
+
+    document
+        .getElementById("poemNumber")
+        .innerHTML =
+        "POEM " + poem.number;
+
+
+    document
+        .getElementById("poemTitle")
+        .innerHTML =
+        poem.title;
+
+
+    document
+        .getElementById("poemText")
+        .innerText =
+        poem.text;
+
+
+    document
+        .getElementById("poemAuthor")
+        .innerHTML =
+        poem.author;
+
+
+    document
+        .getElementById("poemDiary")
+        .classList.remove("show");
+
+
+    document
+        .getElementById("poemPopup")
+        .classList.add("show");
+
+
+    showBackdrop();
+}
+
+
+/* =====================================================
+   CLOSE POEM
+===================================================== */
+
+function closePoem(hide=true){
+
+    document
+        .getElementById("poemPopup")
+        .classList.remove("show");
+
+    if(hide){
+        hideBackdrop();
+    }
+}
+
+
+/* =====================================================
+   CLOSE EVERYTHING
+===================================================== */
+
+function closeEverything(){
+
+    document
+        .getElementById("poemPopup")
+        .classList.remove("show");
+
+    document
+        .getElementById("poemDiary")
+        .classList.remove("show");
+
+    document
+        .getElementById("generalPopup")
+        .classList.remove("show");
+
+    document
+        .getElementById("letterPopup")
+        .classList.remove("show");
+
+    document
+        .getElementById("gratitudePopup")
+        .classList.remove("show");
+
+    hideBackdrop();
+}
+
+
+/* =====================================================
+   ESC KEY
+===================================================== */
+
+document.addEventListener(
+    "keydown",
+    function(event){
+
+        if(event.key === "Escape"){
+
+            closeEverything();
+
+        }
+
+    }
+);
+
+</script>
+
+</body>
+</html>
